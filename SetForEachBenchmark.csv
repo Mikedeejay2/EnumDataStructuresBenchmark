@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"benchmark.SetForEachBenchmark.forEachEnumSet","avgt",1,20,2978.640446,101.866399,"ns/op"
+"benchmark.SetForEachBenchmark.forEachHashSet","avgt",1,20,17257.858418,332.843102,"ns/op"
+"benchmark.SetForEachBenchmark.forEachIntArraySet","avgt",1,20,1054303.349166,32328.555995,"ns/op"
+"benchmark.SetForEachBenchmark.forEachIntHashSet","avgt",1,20,1117705.970719,111832.665293,"ns/op"
+"benchmark.SetForEachBenchmark.forEachReferenceArraySet","avgt",1,20,1091.511799,16.582163,"ns/op"
+"benchmark.SetForEachBenchmark.forEachReferenceHashSet","avgt",1,20,13388.057201,1394.799464,"ns/op"
