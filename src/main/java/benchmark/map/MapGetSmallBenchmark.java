@@ -39,32 +39,32 @@ public class MapGetSmallBenchmark {
     }
 
     @Benchmark
-    public Object containsEnumSet() {
+    public Object containsEnumMap() {
         return enumMap.get(enumToGet);
     }
 
     @Benchmark
-    public Object containsHashSet() {
+    public Object containsHashMap() {
         return hashMap.get(enumToGet);
     }
 
     @Benchmark
-    public Object containsReferenceHashSet() {
+    public Object containsReferenceHashMap() {
         return referenceHashMap.get(enumToGet);
     }
 
     @Benchmark
-    public Object containsReferenceArraySet() {
+    public Object containsReferenceArrayMap() {
         return referenceArrayMap.get(enumToGet);
     }
 
     @Benchmark
-    public Object containsIntHashSet() {
+    public Object containsIntHashMap() {
         return intHashMap.get(ordinalToGet);
     }
 
     @Benchmark
-    public Object containsIntArraySet() {
+    public Object containsIntArrayMap() {
         return intArrayMap.get(ordinalToGet);
     }
 }
