@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"benchmark.map.MapGetLargeBenchmark.containsEnumSet","avgt",1,20,1.246326,0.045371,"ns/op"
+"benchmark.map.MapGetLargeBenchmark.containsHashSet","avgt",1,20,2.737960,0.162266,"ns/op"
+"benchmark.map.MapGetLargeBenchmark.containsIntArraySet","avgt",1,20,300.602801,4.986023,"ns/op"
+"benchmark.map.MapGetLargeBenchmark.containsIntHashSet","avgt",1,20,301.127275,10.442597,"ns/op"
+"benchmark.map.MapGetLargeBenchmark.containsReferenceArraySet","avgt",1,20,298.641201,3.948119,"ns/op"
+"benchmark.map.MapGetLargeBenchmark.containsReferenceHashSet","avgt",1,20,4.886300,0.041404,"ns/op"

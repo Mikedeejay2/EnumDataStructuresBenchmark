@@ -1,5 +1,6 @@
-package benchmark;
+package benchmark.set;
 
+import benchmark.TestEnumSmall;
 import it.unimi.dsi.fastutil.ints.IntArraySet;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
@@ -18,57 +19,59 @@ import java.util.stream.Collectors;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class SetForEachBenchmark {
-    private final List<TestEnum> enumValues = Arrays.asList(TestEnum.values());
+public class SetForEachSmallBenchmark {
+    private final List<TestEnumSmall> enumValues = Arrays.asList(TestEnumSmall.values());
     private final List<Integer> enumOrdinals = enumValues.stream().map(Enum::ordinal).collect(Collectors.toList());
 
-    private final EnumSet<TestEnum> enumSet = EnumSet.allOf(TestEnum.class);
-    private final HashSet<TestEnum> hashSet = new HashSet<>(enumValues);
-    private final ReferenceSet<TestEnum> referenceHashSet = new ReferenceOpenHashSet<>(enumValues);
-    private final ReferenceSet<TestEnum> referenceArraySet = new ReferenceArraySet<>(enumValues);
+    private final EnumSet<TestEnumSmall> enumSet = EnumSet.allOf(TestEnumSmall.class);
+    private final HashSet<TestEnumSmall> hashSet = new HashSet<>(enumValues);
+    private final ReferenceSet<TestEnumSmall> referenceHashSet = new ReferenceOpenHashSet<>(enumValues);
+    private final ReferenceSet<TestEnumSmall> referenceArraySet = new ReferenceArraySet<>(enumValues);
     private final IntSet intHashSet = new IntOpenHashSet(enumOrdinals);
     private final IntSet intArraySet = new IntArraySet(enumOrdinals);
 
     @Benchmark
     public void forEachEnumSet() {
-        for(TestEnum cur : enumSet) {
+        for(TestEnumSmall cur : enumSet) {
             cur.doSomething();
         }
     }
 
     @Benchmark
     public void forEachHashSet() {
-        for(TestEnum cur : hashSet) {
+        for(TestEnumSmall cur : hashSet) {
             cur.doSomething();
         }
     }
 
     @Benchmark
     public void forEachReferenceHashSet() {
-        for(TestEnum cur : referenceHashSet) {
+        for(TestEnumSmall cur : referenceHashSet) {
             cur.doSomething();
         }
     }
 
     @Benchmark
     public void forEachReferenceArraySet() {
-        for(TestEnum cur : referenceArraySet) {
+        for(TestEnumSmall cur : referenceArraySet) {
             cur.doSomething();
         }
     }
 
     @Benchmark
     public void forEachIntHashSet() {
+        final TestEnumSmall[] values = TestEnumSmall.values();
         for(int cur : intHashSet) {
-            TestEnum curEnum = TestEnum.values()[cur];
+            TestEnumSmall curEnum = values[cur];
             curEnum.doSomething();
         }
     }
 
     @Benchmark
     public void forEachIntArraySet() {
+        final TestEnumSmall[] values = TestEnumSmall.values();
         for(int cur : intArraySet) {
-            TestEnum curEnum = TestEnum.values()[cur];
+            TestEnumSmall curEnum = values[cur];
             curEnum.doSomething();
         }
     }

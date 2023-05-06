@@ -1,5 +1,6 @@
-package benchmark;
+package benchmark.set;
 
+import benchmark.TestEnumSmall;
 import it.unimi.dsi.fastutil.ints.IntArraySet;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
@@ -15,17 +16,17 @@ import java.util.stream.Collectors;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class SetContainsBenchmark {
-    private final List<TestEnum> enumValues = Arrays.asList(TestEnum.values());
+public class SetContainsSmallBenchmark {
+    private final List<TestEnumSmall> enumValues = Arrays.asList(TestEnumSmall.values());
     private final List<Integer> enumOrdinals = enumValues.stream().map(Enum::ordinal).collect(Collectors.toList());
 
-    private TestEnum enumToGet = TestEnum.DIAMOND_BLOCK;
+    private TestEnumSmall enumToGet = TestEnumSmall.ANDESITE;
     private int ordinalToGet = enumToGet.ordinal();
 
-    private final EnumSet<TestEnum> enumSet = EnumSet.allOf(TestEnum.class);
-    private final HashSet<TestEnum> hashSet = new HashSet<>(enumValues);
-    private final ReferenceSet<TestEnum> referenceHashSet = new ReferenceOpenHashSet<>(enumValues);
-    private final ReferenceSet<TestEnum> referenceArraySet = new ReferenceArraySet<>(enumValues);
+    private final EnumSet<TestEnumSmall> enumSet = EnumSet.allOf(TestEnumSmall.class);
+    private final HashSet<TestEnumSmall> hashSet = new HashSet<>(enumValues);
+    private final ReferenceSet<TestEnumSmall> referenceHashSet = new ReferenceOpenHashSet<>(enumValues);
+    private final ReferenceSet<TestEnumSmall> referenceArraySet = new ReferenceArraySet<>(enumValues);
     private final IntSet intHashSet = new IntOpenHashSet(enumOrdinals);
     private final IntSet intArraySet = new IntArraySet(enumOrdinals);
 
